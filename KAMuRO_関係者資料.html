@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KAMuRO - 関係者用資料</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&family=Zen+Kaku+Gothic+New:wght@400;700&display=swap');
+
+    :root {
+      --primary: #1a1a2e;
+      --accent: #c9184a;
+      --accent-light: #ff4d6d;
+      --gold: #d4a853;
+      --gold-light: #f0d68a;
+      --bg: #0f0f1a;
+      --card-bg: #16172b;
+      --text: #e8e8f0;
+      --text-muted: #8888a0;
+      --border: #2a2a45;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Noto Sans JP', 'Zen Kaku Gothic New', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.8;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Hero Section */
+    .hero {
+      position: relative;
+      min-height: 50vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+      overflow: hidden;
+      padding: 60px 20px;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background:
+        radial-gradient(circle at 20% 50%, rgba(201, 24, 74, 0.15) 0%, transparent 50%),
+        radial-gradient(circle at 80% 50%, rgba(212, 168, 83, 0.1) 0%, transparent 50%);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero h1 {
+      font-size: 4rem;
+      font-weight: 900;
+      letter-spacing: 0.3em;
+      background: linear-gradient(135deg, var(--gold-light), var(--gold), var(--accent-light));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 16px;
+    }
+
+    .hero .tagline {
+      font-size: 1.1rem;
+      color: var(--gold-light);
+      letter-spacing: 0.15em;
+      font-weight: 300;
+      margin-bottom: 8px;
+    }
+
+    .hero .sub-info {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      letter-spacing: 0.1em;
+    }
+
+    .confidential-badge {
+      display: inline-block;
+      margin-top: 24px;
+      padding: 6px 24px;
+      border: 1px solid var(--accent);
+      color: var(--accent-light);
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+    }
+
+    /* Container */
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Section */
+    .section {
+      padding: 64px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .section:last-child {
+      border-bottom: none;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 40px;
+    }
+
+    .section-number {
+      font-size: 0.7rem;
+      font-weight: 700;
+      color: var(--accent);
+      letter-spacing: 0.15em;
+      min-width: 32px;
+    }
+
+    .section-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+    }
+
+    .section-line {
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(to right, var(--border), transparent);
+    }
+
+    /* Info Grid */
+    .info-grid {
+      display: grid;
+      grid-template-columns: 160px 1fr;
+      gap: 0;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .info-grid .label,
+    .info-grid .value {
+      padding: 14px 20px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .info-grid .label {
+      background: rgba(201, 24, 74, 0.08);
+      color: var(--gold);
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      display: flex;
+      align-items: center;
+    }
+
+    .info-grid .value {
+      font-size: 0.95rem;
+      display: flex;
+      align-items: center;
+    }
+
+    .info-grid .label:last-of-type,
+    .info-grid .value:last-of-type {
+      border-bottom: none;
+    }
+
+    /* Member Cards */
+    .member-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+    }
+
+    .member-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 28px 20px;
+      text-align: center;
+      transition: transform 0.2s, border-color 0.2s;
+    }
+
+    .member-card:hover {
+      transform: translateY(-2px);
+      border-color: var(--accent);
+    }
+
+    .member-icon {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent), var(--gold));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 16px;
+      font-size: 1.5rem;
+      font-weight: 900;
+      color: #fff;
+    }
+
+    .member-name {
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .member-handle {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    /* Discography */
+    .disco-table {
+      width: 100%;
+      border-collapse: collapse;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .disco-table thead {
+      background: rgba(201, 24, 74, 0.1);
+    }
+
+    .disco-table th {
+      padding: 12px 16px;
+      text-align: left;
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: var(--gold);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .disco-table td {
+      padding: 12px 16px;
+      border-top: 1px solid var(--border);
+      font-size: 0.9rem;
+    }
+
+    .disco-table tbody tr:hover {
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 2px 10px;
+      border-radius: 4px;
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+    }
+
+    .badge-album {
+      background: rgba(212, 168, 83, 0.15);
+      color: var(--gold);
+      border: 1px solid rgba(212, 168, 83, 0.3);
+    }
+
+    .badge-single {
+      background: rgba(201, 24, 74, 0.1);
+      color: var(--accent-light);
+      border: 1px solid rgba(201, 24, 74, 0.2);
+    }
+
+    .badge-new {
+      background: rgba(0, 200, 150, 0.1);
+      color: #00c896;
+      border: 1px solid rgba(0, 200, 150, 0.2);
+      margin-left: 8px;
+    }
+
+    /* SNS Links */
+    .sns-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+    }
+
+    .sns-card {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 16px 20px;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      text-decoration: none;
+      color: var(--text);
+      transition: border-color 0.2s;
+    }
+
+    .sns-card:hover {
+      border-color: var(--accent);
+    }
+
+    .sns-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 0.8rem;
+      flex-shrink: 0;
+    }
+
+    .sns-icon.x { background: #1da1f2; color: #fff; }
+    .sns-icon.ig { background: linear-gradient(135deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); color: #fff; }
+    .sns-icon.tt { background: #000; color: #fff; }
+    .sns-icon.yt { background: #ff0000; color: #fff; }
+    .sns-icon.music { background: linear-gradient(135deg, #fc3c44, #a833ff); color: #fff; }
+
+    .sns-name {
+      font-size: 0.85rem;
+      font-weight: 500;
+    }
+
+    .sns-handle {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    /* Timeline */
+    .timeline {
+      position: relative;
+      padding-left: 32px;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 7px;
+      top: 8px;
+      bottom: 8px;
+      width: 1px;
+      background: var(--border);
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: 28px;
+    }
+
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -28px;
+      top: 10px;
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: var(--accent);
+      border: 2px solid var(--bg);
+    }
+
+    .timeline-date {
+      font-size: 0.75rem;
+      color: var(--gold);
+      letter-spacing: 0.1em;
+      margin-bottom: 4px;
+    }
+
+    .timeline-title {
+      font-size: 0.95rem;
+      font-weight: 500;
+    }
+
+    .timeline-desc {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+
+    /* Contact */
+    .contact-box {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 32px;
+    }
+
+    .contact-row {
+      display: flex;
+      align-items: baseline;
+      gap: 16px;
+      margin-bottom: 12px;
+    }
+
+    .contact-row:last-child {
+      margin-bottom: 0;
+    }
+
+    .contact-label {
+      font-size: 0.8rem;
+      color: var(--gold);
+      min-width: 100px;
+      font-weight: 500;
+    }
+
+    .contact-value {
+      font-size: 0.95rem;
+    }
+
+    .contact-value a {
+      color: var(--accent-light);
+      text-decoration: none;
+    }
+
+    .contact-value a:hover {
+      text-decoration: underline;
+    }
+
+    /* Notes */
+    .notes {
+      background: rgba(201, 24, 74, 0.05);
+      border-left: 3px solid var(--accent);
+      padding: 20px 24px;
+      border-radius: 0 8px 8px 0;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      line-height: 1.9;
+    }
+
+    /* Footer */
+    .footer {
+      text-align: center;
+      padding: 40px 24px;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      letter-spacing: 0.05em;
+    }
+
+    /* Former members */
+    .former-list {
+      margin-top: 24px;
+      padding: 16px 20px;
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px dashed var(--border);
+      border-radius: 8px;
+    }
+
+    .former-list h4 {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+      letter-spacing: 0.05em;
+    }
+
+    .former-list ul {
+      list-style: none;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .former-list li {
+      padding: 4px 0;
+    }
+
+    @media print {
+      body { background: #fff; color: #1a1a2e; }
+      .hero { background: #f5f5f5; min-height: auto; padding: 40px 20px; }
+      .hero h1 { -webkit-text-fill-color: var(--accent); color: var(--accent); }
+      .hero .tagline { color: #333; }
+      .section { border-color: #ddd; }
+      .info-grid, .disco-table, .member-card, .sns-card, .contact-box {
+        border-color: #ddd;
+      }
+      .member-card, .sns-card, .contact-box, .info-grid .label {
+        background: #f9f9f9;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Hero -->
+  <header class="hero">
+    <div class="hero-content">
+      <h1>KAMuRO</h1>
+      <p class="tagline">百花繚乱、冠(カムロ)を戴く関西発ロックアイドル</p>
+      <p class="sub-info">2026年2月8日 - 新体制始動 -</p>
+      <div class="confidential-badge">関係者用資料 / CONFIDENTIAL</div>
+    </div>
+  </header>
+
+  <div class="container">
+
+    <!-- 01. 基本情報 -->
+    <section class="section">
+      <div class="section-header">
+        <span class="section-number">01</span>
+        <h2 class="section-title">基本情報</h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="info-grid">
+        <div class="label">グループ名</div>
+        <div class="value">KAMuRO（カムロ）</div>
+        <div class="label">コンセプト</div>
+        <div class="value">百花繚乱、冠(カムロ)を戴く関西発ロックアイドル</div>
+        <div class="label">デビュー日</div>
+        <div class="value">2024年9月7日（NUMBERGATE）</div>
+        <div class="label">新体制始動</div>
+        <div class="value">2026年2月8日</div>
+        <div class="label">所属事務所</div>
+        <div class="value">RING PRODUCTION</div>
+        <div class="label">現メンバー数</div>
+        <div class="value">4名</div>
+        <div class="label">ジャンル</div>
+        <div class="value">ロックアイドル</div>
+        <div class="label">拠点</div>
+        <div class="value">関西</div>
+      </div>
+    </section>
+
+    <!-- 02. メンバー -->
+    <section class="section">
+      <div class="section-header">
+        <span class="section-number">02</span>
+        <h2 class="section-title">メンバー（新体制）</h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="member-grid">
+        <div class="member-card">
+          <div class="member-icon">奏</div>
+          <div class="member-name">奏 (kanade)</div>
+          <div class="member-handle">@KAMuRO_kanade</div>
+        </div>
+        <div class="member-card">
+          <div class="member-icon">巫</div>
+          <div class="member-name">巫女 (miko)</div>
+          <div class="member-handle">@KAMuRO_miko</div>
+        </div>
+        <div class="member-card">
+          <div class="member-icon">乃</div>
+          <div class="member-name">のの (nono)</div>
+          <div class="member-handle">@KAMuRO_nono</div>
+        </div>
+        <div class="member-card">
+          <div class="member-icon">姫</div>
+          <div class="member-name">姫 (hime)</div>
+          <div class="member-handle">@KAMuRO_hime</div>
+        </div>
+      </div>
+
+      <div class="former-list">
+        <h4>旧メンバー</h4>
+        <ul>
+          <li>兎なの（@KAMuRO_nano）- 卒業</li>
+          <li>望月蒼空 - 2024年12月13日付 脱退</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 03. ディスコグラフィ -->
+    <section class="section">
+      <div class="section-header">
+        <span class="section-number">03</span>
+        <h2 class="section-title">ディスコグラフィ</h2>
+        <div class="section-line"></div>
+      </div>
+      <table class="disco-table">
+        <thead>
+          <tr>
+            <th>リリース日</th>
+            <th>タイトル</th>
+            <th>形態</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>2026.02.13</td>
+            <td>白紙のオラトリオ <span class="badge badge-new">NEW</span></td>
+            <td><span class="badge badge-single">Single</span></td>
+          </tr>
+          <tr>
+            <td>2026.02.11</td>
+            <td>kou（煌）</td>
+            <td><span class="badge badge-single">Single</span></td>
+          </tr>
+          <tr>
+            <td>2026.02.09</td>
+            <td>Eternity</td>
+            <td><span class="badge badge-single">Single</span></td>
+          </tr>
+          <tr>
+            <td>2025.12.25</td>
+            <td>Homura（焔）</td>
+            <td><span class="badge badge-single">Single</span></td>
+          </tr>
+          <tr>
+            <td>2025.12.25</td>
+            <td>Kogare（燎）</td>
+            <td><span class="badge badge-single">Single</span></td>
+          </tr>
+          <tr>
+            <td>2025.04.02</td>
+            <td>your song</td>
+            <td><span class="badge badge-single">Single</span></td>
+          </tr>
+          <tr>
+            <td>2025.04.02</td>
+            <td>Spica</td>
+            <td><span class="badge badge-single">Single</span></td>
+          </tr>
+          <tr>
+            <td>2024.11.25</td>
+            <td>KACHIDOKI</td>
+            <td><span class="badge badge-album">Album (4曲)</span></td>
+          </tr>
+        </tbody>
+      </table>
+      <p style="margin-top: 12px; font-size: 0.8rem; color: var(--text-muted);">
+        ※ Apple Music / Spotify 等主要ストリーミングサービスにて配信中
+      </p>
+    </section>
+
+    <!-- 04. 活動実績 -->
+    <section class="section">
+      <div class="section-header">
+        <span class="section-number">04</span>
+        <h2 class="section-title">活動実績</h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-date">2026.02.13</div>
+          <div class="timeline-title">新体制シングル「白紙のオラトリオ」リリース</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-date">2026.02.09 - 02.11</div>
+          <div class="timeline-title">新体制連続リリース（Eternity / kou）</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-date">2026.02.08</div>
+          <div class="timeline-title">新体制始動</div>
+          <div class="timeline-desc">4名体制での活動を開始</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-date">2025.12.25</div>
+          <div class="timeline-title">シングル「Homura」「Kogare」同時リリース</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-date">2025.09.14</div>
+          <div class="timeline-title">1st Anniversary ワンマンライブ「神室事変」</div>
+          <div class="timeline-desc">デビュー1周年記念ワンマン公演</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-date">2025.04.02</div>
+          <div class="timeline-title">シングル「your song」「Spica」リリース</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-date">2024.11.25</div>
+          <div class="timeline-title">1stアルバム「KACHIDOKI」リリース</div>
+          <div class="timeline-desc">全4曲収録</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-date">2024.09.07</div>
+          <div class="timeline-title">KAMuRO デビュー</div>
+          <div class="timeline-desc">NUMBERGATEにてデビューライブ</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 05. SNS / 公式リンク -->
+    <section class="section">
+      <div class="section-header">
+        <span class="section-number">05</span>
+        <h2 class="section-title">SNS / 公式リンク</h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="sns-grid">
+        <a class="sns-card" href="https://x.com/KAMuRO_official" target="_blank">
+          <div class="sns-icon x">X</div>
+          <div>
+            <div class="sns-name">X (Twitter)</div>
+            <div class="sns-handle">@KAMuRO_official</div>
+          </div>
+        </a>
+        <a class="sns-card" href="https://www.instagram.com/kamuro_idol" target="_blank">
+          <div class="sns-icon ig">IG</div>
+          <div>
+            <div class="sns-name">Instagram</div>
+            <div class="sns-handle">@kamuro_idol</div>
+          </div>
+        </a>
+        <a class="sns-card" href="https://www.tiktok.com/@KAMuRO_official" target="_blank">
+          <div class="sns-icon tt">TT</div>
+          <div>
+            <div class="sns-name">TikTok</div>
+            <div class="sns-handle">@KAMuRO_official</div>
+          </div>
+        </a>
+        <a class="sns-card" href="https://www.youtube.com/@kamuroofficial" target="_blank">
+          <div class="sns-icon yt">YT</div>
+          <div>
+            <div class="sns-name">YouTube</div>
+            <div class="sns-handle">@kamuroofficial</div>
+          </div>
+        </a>
+        <a class="sns-card" href="https://linkco.re/5vZSmrAv" target="_blank">
+          <div class="sns-icon music">♪</div>
+          <div>
+            <div class="sns-name">音楽配信</div>
+            <div class="sns-handle">Apple Music / Spotify 他</div>
+          </div>
+        </a>
+        <a class="sns-card" href="https://kamuro.base.ec" target="_blank">
+          <div class="sns-icon" style="background: var(--gold); color: #fff;">EC</div>
+          <div>
+            <div class="sns-name">オンラインストア</div>
+            <div class="sns-handle">kamuro.base.ec</div>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- 06. お問い合わせ -->
+    <section class="section">
+      <div class="section-header">
+        <span class="section-number">06</span>
+        <h2 class="section-title">お問い合わせ</h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="contact-box">
+        <div class="contact-row">
+          <span class="contact-label">運営会社</span>
+          <span class="contact-value">RING PRODUCTION</span>
+        </div>
+        <div class="contact-row">
+          <span class="contact-label">メール</span>
+          <span class="contact-value"><a href="mailto:info@ring-production.com">info@ring-production.com</a></span>
+        </div>
+        <div class="contact-row">
+          <span class="contact-label">公式リンク</span>
+          <span class="contact-value"><a href="https://lit.link/KAMuROofficial" target="_blank">lit.link/KAMuROofficial</a></span>
+        </div>
+      </div>
+
+      <div class="notes" style="margin-top: 24px;">
+        <strong>ご注意</strong><br>
+        本資料は関係者向けに作成されたものです。内容の無断転載・二次配布はご遠慮ください。<br>
+        出演・コラボレーション・取材等のご依頼は上記メールアドレスまでお問い合わせください。<br>
+        ライブスケジュール・特典会情報は公式X及びlit.linkにて随時更新されます。
+      </div>
+    </section>
+
+  </div>
+
+  <footer class="footer">
+    &copy; RING PRODUCTION / KAMuRO &mdash; 本資料の作成日: 2026年3月22日
+  </footer>
+
+</body>
+</html>
