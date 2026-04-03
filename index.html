@@ -81,9 +81,10 @@
     }
 
     .hero h1 {
-      font-size: 4rem;
+      font-size: clamp(2.2rem, 8vw, 4rem);
       font-weight: 900;
-      letter-spacing: 0.3em;
+      letter-spacing: 0.2em;
+      padding: 0 8px;
       background: linear-gradient(135deg, var(--gold-light), var(--gold), var(--accent-light));
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
@@ -526,7 +527,7 @@
     <div class="hero-text-area">
       <div class="hero-content">
         <h1>KAMuRO</h1>
-        <p class="tagline">百花繚乱、冠(カムロ)を戴く関西発ロックアイドル</p>
+        <p class="tagline">百花繚乱、冠(カムロ)を戴く<br>関西発ロックアイドル</p>
         <p class="sub-info">2026年2月8日 - 新体制始動 -</p>
         <div class="confidential-badge">関係者用資料 / CONFIDENTIAL</div>
       </div>
