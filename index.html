@@ -252,6 +252,53 @@
     .member-handle {
       font-size: 0.8rem;
       color: var(--text-muted);
+      margin-bottom: 14px;
+    }
+
+    .member-info {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      padding: 12px 0 10px;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 12px;
+    }
+
+    .member-info-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.75rem;
+      letter-spacing: 0.05em;
+    }
+
+    .member-info-label {
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    .member-info-value {
+      font-weight: 700;
+      letter-spacing: 0.08em;
+    }
+
+    .color-dot {
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      margin-right: 6px;
+      vertical-align: middle;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .member-hashtag {
+      font-size: 0.75rem;
+      color: var(--gold-light);
+      letter-spacing: 0.02em;
+      word-break: break-all;
+      line-height: 1.5;
     }
 
     /* Discography */
@@ -579,29 +626,84 @@
       </div>
       <div class="member-grid">
         <div class="member-card">
-          <img src="member-miko.jpg" alt="雪城みこ" class="member-photo">
-          <div class="member-name">雪城みこ</div>
+          <img src="member-miko.jpg" alt="雪城 みこ" class="member-photo">
+          <div class="member-name">雪城 みこ</div>
           <div class="member-handle">@KAMuRO_miko</div>
+          <div class="member-info">
+            <div class="member-info-row">
+              <span class="member-info-label">COLOR</span>
+              <span class="member-info-value"><span class="color-dot" style="background:#ffffff;"></span>WHITE</span>
+            </div>
+            <div class="member-info-row">
+              <span class="member-info-label">BIRTHDAY</span>
+              <span class="member-info-value">01.12</span>
+            </div>
+          </div>
+          <div class="member-hashtag">#ゆきしろもちもち界隈</div>
         </div>
         <div class="member-card">
-          <img src="member-hime.jpg" alt="嶺嬡ひめ" class="member-photo">
-          <div class="member-name">嶺嬡ひめ</div>
+          <img src="member-hime.jpg" alt="嶺嬡 ひめ" class="member-photo">
+          <div class="member-name">嶺嬡 ひめ</div>
           <div class="member-handle">@KAMuRO_hime</div>
+          <div class="member-info">
+            <div class="member-info-row">
+              <span class="member-info-label">COLOR</span>
+              <span class="member-info-value"><span class="color-dot" style="background:#e63946;"></span>RED</span>
+            </div>
+            <div class="member-info-row">
+              <span class="member-info-label">BIRTHDAY</span>
+              <span class="member-info-value">07.26</span>
+            </div>
+          </div>
+          <div class="member-hashtag">#姫につかえます</div>
         </div>
         <div class="member-card">
-          <img src="member-nono.jpg" alt="愛月のの" class="member-photo">
-          <div class="member-name">愛月のの</div>
+          <img src="member-nono.jpg" alt="愛月 のの" class="member-photo">
+          <div class="member-name">愛月 のの</div>
           <div class="member-handle">@KAMuRO_nono</div>
+          <div class="member-info">
+            <div class="member-info-row">
+              <span class="member-info-label">COLOR</span>
+              <span class="member-info-value"><span class="color-dot" style="background:#ff6fa8;"></span>PINK</span>
+            </div>
+            <div class="member-info-row">
+              <span class="member-info-label">BIRTHDAY</span>
+              <span class="member-info-value">08.16</span>
+            </div>
+          </div>
+          <div class="member-hashtag">#これみてののちゃん</div>
         </div>
         <div class="member-card">
           <img src="member-kanade.jpg" alt="蒼魔カナデ" class="member-photo">
           <div class="member-name">蒼魔カナデ</div>
           <div class="member-handle">@KAMuRO_kanade</div>
+          <div class="member-info">
+            <div class="member-info-row">
+              <span class="member-info-label">COLOR</span>
+              <span class="member-info-value"><span class="color-dot" style="background:#3a7dff;"></span>BLUE</span>
+            </div>
+            <div class="member-info-row">
+              <span class="member-info-label">BIRTHDAY</span>
+              <span class="member-info-value">09.14</span>
+            </div>
+          </div>
+          <div class="member-hashtag">#カナデ氏をここに召喚</div>
         </div>
         <div class="member-card">
           <img src="member-yamada.png" alt="やまだ" class="member-photo">
           <div class="member-name">やまだ</div>
           <div class="member-handle">@KAMuRO_yamada</div>
+          <div class="member-info">
+            <div class="member-info-row">
+              <span class="member-info-label">COLOR</span>
+              <span class="member-info-value"><span class="color-dot" style="background:#a259ff;"></span>VIOLET</span>
+            </div>
+            <div class="member-info-row">
+              <span class="member-info-label">BIRTHDAY</span>
+              <span class="member-info-value">03.28</span>
+            </div>
+          </div>
+          <div class="member-hashtag">#やまだはなぜやまだなのかを知る会</div>
         </div>
       </div>
 
